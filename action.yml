@@ -29,8 +29,12 @@ inputs:
   docker_compose_down:
     description: Execute docker compose-down ("true" or "false").
     default: 'false'
-  compose_profiles:
+  docker_compose_profiles:
     description: Docker Compose profiles to enable (comma-separated)
+    default: ''
+    required: false
+  docker_compose_env_file:
+    description: Path to .env file on remote host (optional)
     default: ''
     required: false
 runs:
@@ -45,4 +49,5 @@ runs:
     DOCKER_COMPOSE_PREFIX: ${{ inputs.docker_compose_prefix }}
     USE_DOCKER_STACK: ${{ inputs.use_stack }}
     DOCKER_COMPOSE_DOWN: ${{ inputs.docker_compose_down }}
-    COMPOSE_PROFILES: ${{ inputs.compose_profiles }}
+    DOCKER_COMPOSE_PROFILES: ${{ inputs.docker_compose_profiles }}
+    DOCKER_COMPOSE_ENV_FILE: ${{ inputs.docker_compose_env_file }}
