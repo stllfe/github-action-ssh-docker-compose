@@ -29,6 +29,10 @@ inputs:
   docker_compose_down:
     description: Execute docker compose-down ("true" or "false").
     default: 'false'
+  compose_profiles:
+    description: Docker Compose profiles to enable (comma-separated)
+    default: ''
+    required: false
 runs:
   using: docker
   image: Dockerfile
@@ -41,3 +45,4 @@ runs:
     DOCKER_COMPOSE_PREFIX: ${{ inputs.docker_compose_prefix }}
     USE_DOCKER_STACK: ${{ inputs.use_stack }}
     DOCKER_COMPOSE_DOWN: ${{ inputs.docker_compose_down }}
+    COMPOSE_PROFILES: ${{ inputs.compose_profiles }}
